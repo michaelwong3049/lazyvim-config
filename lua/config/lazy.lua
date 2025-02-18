@@ -24,12 +24,15 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-	  { "rose-pine/neovim", name = "rose-pine", config = function() vim.cmd("colorscheme rose-pine") end },
-	  { 'windwp/nvim-autopairs', event="InsertEnter", config = true },
-	  -- plugins for lsp-zero
-	  {'neovim/nvim-lspconfig'},
-	  {'hrsh7th/cmp-nvim-lsp'},
-	  {'hrsh7th/nvim-cmp'},
+    { "craftzdog/solarized-osaka.nvim", name = "solarized-osaka"},
+    { "catppuccin/nvim", name = "catppuccin" },
+    { "rose-pine/neovim", name = "rose-pine",   config = function() vim.cmd.colorscheme("catppuccin") end },
+    { "folke/tokyonight.nvim", name = "tokyonight" },
+    { 'windwp/nvim-autopairs', event="InsertEnter", config = true, opts = {} },
+    -- plugins for lsp-zero
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/nvim-cmp'},
     -- import your plugins
     { import = "plugins" },
     { import = "plugins.lsp" },
@@ -37,7 +40,7 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "habamax, tokyonight", "catppuccin", "craftzdog/solarized-osaka.nvim" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

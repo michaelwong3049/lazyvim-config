@@ -1,3 +1,5 @@
+local opts = { noremap = true, silent = true }
+
 -- assign keybind to go to file explore; kebyind for :Ex
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -14,4 +16,14 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 -- bind moving lines of code using shift block 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- splitting and moving windows
+vim.keymap.set("n", "ss", ":vsplit<CR>", opts)
+vim.keymap.set("n", "sv", ":split<Return>", opts)
+
+vim.keymap.set("n", "sh", "<C-w>h")
+vim.keymap.set("n", "sk", "<C-w>k")
+vim.keymap.set("n", "sj", "<C-w>j")
+vim.keymap.set("n", "sl", "<C-w>l")
+
 

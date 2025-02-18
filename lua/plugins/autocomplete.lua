@@ -1,7 +1,9 @@
 return {
   {
     'saghen/blink.cmp',
-    dependencies = 'rafamadriz/friendly-snippets',
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
 
     version = '*',
 
@@ -13,8 +15,7 @@ return {
 	nerd_font_variant = 'mono'
       },
 
-      signature = { enabled = true }
-
+      signature = { enabled = true },
     },
   }
 }
