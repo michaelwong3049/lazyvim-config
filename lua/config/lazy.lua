@@ -24,11 +24,13 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    -- colorschemes
     { "craftzdog/solarized-osaka.nvim", name = "solarized-osaka"},
     { "catppuccin/nvim", name = "catppuccin" },
-    { "rose-pine/neovim", name = "rose-pine",   config = function() vim.cmd.colorscheme("catppuccin") end },
+    { "rose-pine/neovim", name = "rose-pine",   config = function() vim.cmd.colorscheme("rose-pine") end },
     { "folke/tokyonight.nvim", name = "tokyonight" },
-    { 'windwp/nvim-autopairs', event="InsertEnter", config = true, opts = {} },
+
+    -- { 'windwp/nvim-autopairs', event="InsertEnter", config = true, opts = {} },
     -- plugins for lsp-zero
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
