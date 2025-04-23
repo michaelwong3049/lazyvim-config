@@ -62,8 +62,32 @@ return {
       require("lspconfig").ts_ls.setup{ capabilities = capabilities }
       require("lspconfig").jdtls.setup{ capabilities = capabilities }
       require("lspconfig").pyright.setup{ capabilities = capabilities }
+      require("lspconfig").gopls.setup{}
+      require("lspconfig").sourcekit.setup{
+	capabilities = {
+	  textDocument = {
+	    diagnostic = {
+	      dynamicRegistration = true,
+	      relatedDocumentSupport = true
+	    }
+	  },
+	  workspace = {
+	    didChangeWatchedFiles = {
+	      dynamicRegistration = true,
+	    },
+	  },
+	},
+      }
+
+      -- swift binds
+      vim.api.nvim_create_autocmd('LspAttach', {
+	desc = 'LSP Actions',
+	callback = function(args)
+	  vim.keymap.set('n', 'K', vim.lsp.buf.hover, {noremap = true, silent = true})
+	  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {noremap = true, silent = true})
+	end,
+      })
     end
   }
-
 }
 

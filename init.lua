@@ -12,7 +12,9 @@ vim.opt.termguicolors=true
 -- vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
 -- Create an autocmd that runs whenever a window is entered or created
+
 vim.api.nvim_set_option("clipboard", "unnamed")
+-- this is for the proper clear backgrounds
 vim.api.nvim_create_autocmd({"WinEnter", "WinNew"}, {
   callback = function()
     -- Set all window-related highlight groups to have transparent backgrounds

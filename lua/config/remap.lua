@@ -26,3 +26,6 @@ vim.keymap.set("n", "sk", "<C-w>k")
 vim.keymap.set("n", "sj", "<C-w>j")
 vim.keymap.set("n", "sl", "<C-w>l")
 
+-- nvim tree
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
+
