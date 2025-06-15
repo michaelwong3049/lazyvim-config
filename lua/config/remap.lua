@@ -28,4 +28,15 @@ vim.keymap.set("n", "sl", "<C-w>l")
 
 -- nvim tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "NvimTree",
+  callback = function()
+    vim.defer_fn(function()
+      local opts = { buffer = true, noremap = true, silent = true }
+      vim.keymap.set("n", "sh", "<C-w>h", opts)
+      vim.keymap.set("n", "sl", "<C-w>l", opts)
+      vim.keymap.set("n", "sj", "<C-w>j", opts)
+      vim.keymap.set("n", "sk", "<C-w>k", opts)
+    end, 100)
+  end,
+})
