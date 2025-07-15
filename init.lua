@@ -3,6 +3,7 @@ require("config.remap")
 require("config.options")
 
 vim.opt.termguicolors = true
+vim.o.termguicolors = true
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- this is for the proper clear backgrounds
@@ -24,4 +25,12 @@ vim.api.nvim_create_autocmd({"WinEnter", "WinNew"}, {
   desc = "Ensure all windows have transparent backgrounds"
 })
 vim.o.scrolloff = 8
+
+vim.api.nvim_set_hl(0, "@text.strike", { strikethrough = true })
+vim.api.nvim_set_hl(0, "htmlStrike", { strikethrough = true })
+
+-- no italic
+vim.api.nvim_set_hl(0, "Comment", { italic = false })
+vim.api.nvim_set_hl(0, "Identifier", { italic = false })
+vim.api.nvim_set_hl(0, "Function", { italic = false }) -- optional
 
