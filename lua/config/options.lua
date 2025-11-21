@@ -27,3 +27,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- e.g., in options.lua/init.lua
+vim.opt.splitright = true   -- vertical splits open on the right
+vim.opt.splitbelow = true   -- (optional) horizontal splits open below
+
+-- how much lines to include
+vim.o.scrolloff = 8
+

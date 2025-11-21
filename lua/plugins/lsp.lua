@@ -50,6 +50,7 @@ return {
 					"lua_ls",
 					"rust_analyzer",
 					"ts_ls",
+					"tinymist",
 					"java_language_server",
 					"jdtls",
 					"html",
@@ -67,22 +68,18 @@ return {
 		},
 		config = function()
 			local capabilities = require('blink.cmp').get_lsp_capabilities()
-			require("lspconfig").lua_ls.setup{ capabilities = capabilities }
-			require("lspconfig").html.setup{ capabilities = capabilities }
-			require("lspconfig").cssls.setup{ capabilities = capabilities }
-			require("lspconfig").ts_ls.setup{ capabilities = capabilities }
-			require("lspconfig").jdtls.setup{ capabilities = capabilities }
-			require("lspconfig").pyright.setup{ capabilities = capabilities }
-			require("lspconfig").gopls.setup{}
-			require("lspconfig").sourcekit.setup({
-				capabilities = {
-					workspace = {
-						didChangeWatchedFiles = {
-							dynamicRegistration = true,
-						},
-					},
-				},
-			})
+
+      vim.lsp.enable({
+        "lua_ls",
+        "html",
+        "cssls",
+        "ts_ls",
+        "jdtls",
+        "clangd",
+        "pyright",
+        "gopls",
+        "sourcekit"
+      })
 		end
 	}
 }
