@@ -38,10 +38,18 @@ vim.api.nvim_create_autocmd("FileType", {
 --   group = vim.api.nvim_create_augroup("TransparentBackground", { clear = true }),
 --   desc = "Ensure all windows have transparent backgrounds"
 -- })
+--
 vim.o.scrolloff = 8
 
 vim.api.nvim_set_hl(0, "@text.strike", { strikethrough = true })
 vim.api.nvim_set_hl(0, "htmlStrike", { strikethrough = true })
+
+-- fixing resizing?
+vim.api.nvim_create_autocmd("VimResized", {
+  callback = function()
+    vim.cmd("wincmd =")
+  end,
+})
 
 -- no italic
 vim.api.nvim_set_hl(0, "Comment", { italic = false })

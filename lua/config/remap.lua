@@ -13,6 +13,12 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live gr
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
+-- jump to windows by number
+vim.keymap.set("n", "<leader>+", "1<C-w>w", vim.tbl_extend("force", opts, { desc = "Go to window 1" }))
+vim.keymap.set("n", "<leader>[", "2<C-w>w", vim.tbl_extend("force", opts, { desc = "Go to window 2" }))
+vim.keymap.set("n", "<leader>{", "3<C-w>w", vim.tbl_extend("force", opts, { desc = "Go to window 3" }))
+vim.keymap.set("n", "<leader>(", "4<C-w>w", vim.tbl_extend("force", opts, { desc = "Go to window 4" }))
+
 -- bind moving lines of code using shift block
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
